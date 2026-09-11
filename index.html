@@ -1,227 +1,618 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeeStarbase.com - SpaceX Starship Launch Viewing & Travel Guide</title>
-    <meta name="description" content="Ultimate travel guide for SpaceX Starship launches at Boca Chica Starbase, Texas. Hotel bookings, viewing spots, and car rentals.">
-    <!-- 引入 Tailwind CSS CDN（无需本地安装，免费开箱即用） -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.setAttribute("data-cmp-ab","2");
-      script.src = 'https://tp-em.com/NTcyMzU2.js?t=572356';
-      document.head.appendChild(script);
-  })();
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SeeStarbase — SpaceX Starship Launch Viewing &amp; Travel Guide</title>
+<meta name="description" content="Independent travel guide for watching SpaceX Starship launches at Boca Chica, Texas: viewing spots, hotels, and getting there.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --navy-950:#0b111c;
+    --navy-900:#0f1626;
+    --navy-850:#141d30;
+    --navy-800:#1a253c;
+    --line:rgba(237,234,225,0.10);
+    --line-soft:rgba(237,234,225,0.06);
+    --text:#e9e6dc;
+    --text-muted:#93a0ae;
+    --text-faint:#5f6b7a;
+    --flame:#e8823a;
+    --flame-soft:rgba(232,130,58,0.14);
+    --teal:#4a9298;
+    --teal-soft:rgba(74,146,152,0.14);
+    --radius-s:6px;
+    --radius-m:14px;
+    --font-display:"Space Grotesk", sans-serif;
+    --font-body:"IBM Plex Sans", sans-serif;
+    --font-mono:"IBM Plex Mono", monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy-950);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--flame);
+    outline-offset:3px;
+  }
+  img{max-width:100%;display:block;}
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    color:#fff;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  p{margin:0;}
+
+  .lede{
+    color:var(--text-muted);
+    max-width:56ch;
+  }
+
+  /* ---------- Nav ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(11,17,28,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .brand{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.05rem;
+    text-decoration:none;
+    color:#fff;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .brand em{
+    font-style:normal;
+    color:var(--flame);
+  }
+  .brand .sub{
+    font-family:var(--font-mono);
+    font-size:0.65rem;
+    color:var(--text-faint);
+    font-weight:400;
+    letter-spacing:0.03em;
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-size:0.9rem;
+    color:var(--text-muted);
+  }
+  .nav-links a{
+    text-decoration:none;
+    position:relative;
+    padding:4px 0;
+  }
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    font-size:0.85rem;
+    font-weight:600;
+    text-decoration:none;
+    padding:9px 16px;
+    border-radius:var(--radius-s);
+    background:var(--flame);
+    color:#1a0e04;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:#f2954f;}
+
+  @media (max-width:760px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    border-bottom:1px solid var(--line);
+    padding:88px 0 72px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 0.82fr;
+    gap:64px;
+    align-items:center;
+  }
+  .hero-copy{
+    max-width:560px;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero .lede{
+    font-size:1.1rem;
+    margin-bottom:32px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  /* Hero map graphic */
+  .hero-map{position:relative;}
+  .hero-map svg{width:100%;height:auto;display:block;}
+  .pad-dot{
+    animation:pulse 2.4s ease-in-out infinite;
+    transform-origin:center;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .pad-dot{animation:none;}
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1; transform:scale(1);}
+    50%{opacity:0.45; transform:scale(1.6);}
+  }
+  .btn{
+    display:inline-block;
+    padding:13px 22px;
+    border-radius:var(--radius-s);
+    font-weight:600;
+    font-size:0.92rem;
+    text-decoration:none;
+    transition:background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-primary{
+    background:var(--flame);
+    color:#1a0e04;
+  }
+  .btn-primary:hover{background:#f2954f;}
+  .btn-ghost{
+    border:1px solid var(--line);
+    color:var(--text);
+  }
+  .btn-ghost:hover{border-color:var(--text-faint);}
+
+  /* ---------- Section shells ---------- */
+  section{padding:72px 0;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:1.7rem;
+    margin-bottom:10px;
+  }
+  .section-head .lede{font-size:0.98rem;}
+  .section-meta{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--text-faint);
+    white-space:nowrap;
+  }
+
+  #viewing-guide{border-bottom:1px solid var(--line);}
+
+  /* ---------- Viewing log list ---------- */
+  .log-list{
+    border-top:1px solid var(--line);
+  }
+  .log-row{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:32px;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .log-distance{
+    font-family:var(--font-mono);
+    font-size:1.15rem;
+    color:var(--flame);
+    padding-top:2px;
+  }
+  .log-distance span{
+    display:block;
+    font-size:0.7rem;
+    color:var(--text-faint);
+    margin-top:4px;
+    letter-spacing:0.02em;
+  }
+  .log-body h3{
+    font-size:1.2rem;
+    margin-bottom:8px;
+  }
+  .log-body p{
+    color:var(--text-muted);
+    max-width:64ch;
+    margin-bottom:14px;
+  }
+  .log-meta{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:0.84rem;
+    color:var(--text-faint);
+  }
+  .log-meta li{
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+  .log-meta li::before{
+    content:"";
+    width:5px;height:5px;
+    border-radius:50%;
+    background:var(--text-faint);
+    flex-shrink:0;
+  }
+
+  @media (max-width:600px){
+    .log-row{grid-template-columns:1fr;gap:8px;}
+  }
+
+  /* ---------- Hotels ---------- */
+  #hotels{background:var(--navy-900);border-bottom:1px solid var(--line);}
+  .hotel-groups{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .hotel-panel{
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    padding:28px 28px 8px;
+    background:var(--navy-850);
+  }
+  .hotel-panel.spi{border-left:3px solid var(--teal);}
+  .hotel-panel.brownsville{border-left:3px solid var(--flame);}
+  .hotel-panel h3{
+    font-size:1.15rem;
+    margin-bottom:8px;
+  }
+  .hotel-panel > p{
+    color:var(--text-muted);
+    font-size:0.92rem;
+    max-width:48ch;
+    margin-bottom:22px;
+  }
+  .hotel-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding:16px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .hotel-row .name{
+    font-weight:500;
+    font-size:0.94rem;
+    color:var(--text);
+  }
+  .hotel-row .note{
+    font-size:0.8rem;
+    color:var(--text-faint);
+    margin-top:2px;
+  }
+  .rate-link{
+    flex-shrink:0;
+    font-size:0.8rem;
+    font-weight:600;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:var(--radius-s);
+    border:1px solid var(--line);
+    white-space:nowrap;
+  }
+  .spi .rate-link:hover{border-color:var(--teal);color:var(--teal);}
+  .brownsville .rate-link:hover{border-color:var(--flame);color:var(--flame);}
+
+  @media (max-width:760px){
+    .hotel-groups{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Transit band ---------- */
+  #car-rentals .band{
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    padding:44px;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+    background:linear-gradient(135deg, var(--navy-850), var(--navy-900));
+  }
+  #car-rentals h2{font-size:1.5rem;margin-bottom:14px;}
+  #car-rentals p{
+    color:var(--text-muted);
+    max-width:52ch;
+    margin-bottom:22px;
+  }
+  .transit-chips{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    padding:9px 14px;
+    border-radius:var(--radius-s);
+    background:var(--navy-800);
+    border:1px solid var(--line);
+    color:var(--text-muted);
+  }
+  .chip b{color:var(--text);font-weight:500;}
+  .band-cta{
+    display:flex;
+    justify-content:flex-end;
+  }
+  @media (max-width:760px){
+    #car-rentals .band{grid-template-columns:1fr;padding:32px;}
+    .band-cta{justify-content:flex-start;}
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:40px 0;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .footer-brand p{
+    font-size:0.82rem;
+    color:var(--text-faint);
+    max-width:44ch;
+    margin-bottom:6px;
+  }
+  .footer-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    font-size:0.82rem;
+    color:var(--text-muted);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .footer-links a:hover{
+    color:var(--text);
+    border-bottom-color:var(--text-faint);
+  }
+
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    section{padding:52px 0;}
+    .hero{padding:52px 0 44px;}
+    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    .hero-map{order:-1;max-width:300px;}
+  }
+</style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+<body>
 
-    <!-- 顶部导航栏 Navigation -->
-    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-wider text-sky-400 flex items-center gap-2">
-                🚀 SeeStarbase<span class="text-xs px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800">TEXAS</span>
-            </a>
-            <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
-                <a href="#home" class="hover:text-sky-400 transition-colors">Home</a>
-                <a href="#viewing-guide" class="hover:text-sky-400 transition-colors">Viewing Spots</a>
-                <a href="#hotels" class="hover:text-sky-400 transition-colors">Hotels & Stay</a>
-                <a href="#car-rentals" class="hover:text-sky-400 transition-colors">Car Rental & Transit</a>
-            </nav>
-            <a href="#hotels" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold px-4 py-2 rounded-lg text-sm transition-all shadow-lg shadow-sky-500/20">
-                Book Stay
-            </a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="#home" class="brand">See<em>starbase</em> <span class="sub">TEXAS</span></a>
+    <nav class="nav-links">
+      <a href="#viewing-guide">Viewing spots</a>
+      <a href="#hotels">Where to stay</a>
+      <a href="#car-rentals">Getting there</a>
+    </nav>
+    <a href="#hotels" class="nav-cta">Plan a trip</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Watch Starship leave the pad from the Texas coast</h1>
+      <p class="lede">An independent, practical guide to viewing SpaceX Starship launches at Boca Chica — where to stand, where to sleep, and how to get there once Highway 4 closes.</p>
+      <div class="hero-actions">
+        <a href="#viewing-guide" class="btn btn-primary">Find a viewing spot</a>
+        <a href="#hotels" class="btn btn-ghost">Book a place to stay</a>
+      </div>
+    </div>
+
+    <div class="hero-map" aria-hidden="true">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 H480 V360 H0 Z" fill="var(--navy-900)"/>
+        <path d="M0,51 C70,34 90,94 60,146 C30,197 90,231 70,291 C55,339 0,351 0,351 Z"
+              fill="var(--teal)" opacity="0.14"/>
+        <path d="M120,0 C90,60 130,111 105,163 C80,214 140,257 120,309 C108,339 130,360 130,360
+                 L480,360 L480,0 Z" fill="var(--navy-850)"/>
+        <line x1="238" y1="151" x2="150" y2="197" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+        <line x1="238" y1="151" x2="300" y2="77" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+        <line x1="238" y1="151" x2="330" y2="257" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+
+        <circle cx="238" cy="151" r="5" fill="var(--flame)" class="pad-dot"/>
+        <circle cx="238" cy="151" r="9" fill="none" stroke="var(--flame)" stroke-width="1" opacity="0.5"/>
+        <rect x="234" y="129" width="8" height="17" fill="var(--flame)" opacity="0.5"/>
+
+        <circle cx="150" cy="197" r="3.5" fill="var(--text-muted)"/>
+        <circle cx="300" cy="77" r="3.5" fill="var(--text-muted)"/>
+        <circle cx="330" cy="257" r="3.5" fill="var(--text-muted)"/>
+
+        <text x="108" y="216" font-family="IBM Plex Mono, monospace" font-size="12" fill="#93a0ae">Hwy 4 · 2 mi</text>
+        <text x="308" y="70" font-family="IBM Plex Mono, monospace" font-size="12" fill="#93a0ae">Isla Blanca · 5 mi</text>
+        <text x="278" y="278" font-family="IBM Plex Mono, monospace" font-size="12" fill="#93a0ae">Port Isabel · 7 mi</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="viewing-guide">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Where to watch, closest first</h2>
+        <p class="lede">Three public spots along the coast, ordered by distance from the pad.</p>
+      </div>
+      <span class="section-meta">Boca Chica, TX</span>
+    </div>
+
+    <div class="log-list">
+      <div class="log-row">
+        <div class="log-distance">2 mi<span>from pad</span></div>
+        <div class="log-body">
+          <h3>Boca Chica Highway (Highway 4)</h3>
+          <p>The closest public road before security checkpoints close it off. Nothing else gets you nearer to the engine ignition — the sound arrives before you're ready for it.</p>
+          <ul class="log-meta">
+            <li>Roadside parking, fills fast</li>
+            <li>Road closures apply on launch day</li>
+          </ul>
         </div>
-    </header>
+      </div>
 
-    <!-- 1. 首页 Header / Hero Section -->
-    <section id="home" class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-semibold text-sky-400 mb-6">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live Boca Chica Updates
-            </div>
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                Your Ultimate Gate to <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">SpaceX Starbase Launch</span>
-            </h1>
-            <p class="max-w-2xl mx-auto text-lg text-slate-400 mb-8">
-                Plan your flight, book top-rated hotels in South Padre Island & Brownsville, and secure the best viewing spots for the next Starship test flight.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#viewing-guide" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-sky-500/25">
-                    Explore Viewing Locations
-                </a>
-                <a href="#hotels" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-6 py-3 rounded-xl transition-all">
-                    Find Nearby Hotels
-                </a>
-            </div>
+      <div class="log-row">
+        <div class="log-distance">5 mi<span>from pad</span></div>
+        <div class="log-body">
+          <h3>Isla Blanca Park, South Padre Island</h3>
+          <p>The most popular public viewing spot, looking back across the bay at the orbital launch mount. Easy to reach, easy to park, and rarely closed by road restrictions.</p>
+          <ul class="log-meta">
+            <li>$10 county park parking fee</li>
+            <li>Restrooms and pavilions on site</li>
+          </ul>
         </div>
-    </section>
+      </div>
 
-    <!-- 2. 观礼指南板块 Viewing Guide Section -->
-    <section id="viewing-guide" class="py-16 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold text-white mb-2">🔭 Best Starship Viewing Spots</h2>
-                <p class="text-slate-400">Where to set up your camera and witness history unfold in Texas.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- 地点卡片 1 -->
-                <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all">
-                    <span class="text-xs font-mono text-sky-400 bg-sky-950 px-2.5 py-1 rounded-md border border-sky-800">Distance: ~5 Miles</span>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">Isla Blanca Park (South Padre)</h3>
-                    <p class="text-sm text-slate-400 mb-4">The most popular public spot across the jetties. Excellent line-of-sight view of the Orbital Launch Mount across the bay.</p>
-                    <ul class="text-xs text-slate-300 space-y-1.5 mb-6">
-                        <li>📍 Location: South Padre Island Tip</li>
-                        <li>🚗 Parking: $10 County Park Fee</li>
-                        <li>🚽 Facilities: Restrooms & Pavilions</li>
-                    </ul>
-                </div>
-
-                <!-- 地点卡片 2 -->
-                <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all">
-                    <span class="text-xs font-mono text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-800">Distance: ~2 Miles</span>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">Boca Chica Highway (Highway 4)</h3>
-                    <p class="text-sm text-slate-400 mb-4">Closest public road before security checkpoints close. Unrivaled sound impact during engine ignition.</p>
-                    <ul class="text-xs text-slate-300 space-y-1.5 mb-6">
-                        <li>📍 Location: HWY 4 Checkpoint Area</li>
-                        <li>🚗 Parking: Roadside (Fills fast!)</li>
-                        <li>⚠️ Warning: Road closures apply</li>
-                    </ul>
-                </div>
-
-                <!-- 地点卡片 3 -->
-                <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all">
-                    <span class="text-xs font-mono text-indigo-400 bg-indigo-950 px-2.5 py-1 rounded-md border border-indigo-800">Distance: ~7 Miles</span>
-                    <h3 class="text-xl font-bold text-white mt-4 mb-2">Port Isabel Boat Ramp</h3>
-                    <p class="text-sm text-slate-400 mb-4">A great alternative for photographers wanting water reflections without crossing the South Padre Causeway traffic.</p>
-                    <ul class="text-xs text-slate-300 space-y-1.5 mb-6">
-                        <li>📍 Location: Under Port Isabel Bridge</li>
-                        <li>🚗 Parking: Free/Limited</li>
-                        <li>📷 Vibe: Chill & Family-Friendly</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="log-row">
+        <div class="log-distance">7 mi<span>from pad</span></div>
+        <div class="log-body">
+          <h3>Port Isabel Boat Ramp</h3>
+          <p>A quieter alternative under the Port Isabel bridge, with water reflections for photographers who'd rather skip South Padre causeway traffic.</p>
+          <ul class="log-meta">
+            <li>Free parking, limited spaces</li>
+            <li>Family-friendly, low crowds</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- 3. 住宿指南板块 Hotel Guide Section (变现中心) -->
-    <section id="hotels" class="py-16 border-b border-slate-800 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2">🏨 Where to Stay near Starbase</h2>
-                    <p class="text-slate-400">Book early! Hotels fill up rapidly during launch window announcements.</p>
-                </div>
-                <span class="text-xs text-slate-500 mt-2 md:mt-0">Powered by Booking.com & VRBO Affiliate Partner</span>
-            </div>
+<section id="hotels">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Where to stay near Starbase</h2>
+        <p class="lede">Rooms fill quickly once a launch window is announced — book with free cancellation where you can.</p>
+      </div>
+      <span class="section-meta">Booking.com &amp; VRBO partner</span>
+    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- 酒店列表 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                    <h3 class="text-xl font-bold text-sky-400 mb-2">South Padre Island (Resorts & Beach)</h3>
-                    <p class="text-sm text-slate-400 mb-6">Best for vacationers, beach lovers, and direct oceanfront views toward the launchpad.</p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
-                            <div>
-                                <div class="font-medium text-white text-sm">Margaritaville Beach Resort</div>
-                                <div class="text-xs text-slate-400">Closest resort to Isla Blanca viewing park</div>
-                            </div>
-                            <!-- 此处为 Booking.com 联盟卡片跳转链接 -->
-                            <a href="https://www.booking.com" target="_blank" class="bg-sky-500/10 text-sky-400 hover:bg-sky-500 hover:text-slate-950 text-xs font-semibold px-3 py-1.5 rounded transition-all">
-                                Check Rates
-                            </a>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
-                            <div>
-                                <div class="font-medium text-white text-sm">Courtyard by Marriott SPI</div>
-                                <div class="text-xs text-slate-400">High comfort & reliable Wi-Fi for media</div>
-                            </div>
-                            <a href="https://www.booking.com" target="_blank" class="bg-sky-500/10 text-sky-400 hover:bg-sky-500 hover:text-slate-950 text-xs font-semibold px-3 py-1.5 rounded transition-all">
-                                Check Rates
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <div class="hotel-groups">
+      <div class="hotel-panel spi">
+        <h3>South Padre Island — beach &amp; resort</h3>
+        <p>For vacationers and photographers who want an oceanfront room facing the pad.</p>
 
-                <!-- 酒店列表 2 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                    <h3 class="text-xl font-bold text-indigo-400 mb-2">Brownsville, TX (Budget & Convenience)</h3>
-                    <p class="text-sm text-slate-400 mb-6">Best for budget travelers, closer to Brownsville Airport (BRO) and quick access to Highway 4.</p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
-                            <div>
-                                <div class="font-medium text-white text-sm">Residence Inn Brownsville</div>
-                                <div class="text-xs text-slate-400">Spacious suites with kitchens</div>
-                            </div>
-                            <a href="https://www.booking.com" target="_blank" class="bg-sky-500/10 text-sky-400 hover:bg-sky-500 hover:text-slate-950 text-xs font-semibold px-3 py-1.5 rounded transition-all">
-                                Check Rates
-                            </a>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
-                            <div>
-                                <div class="font-medium text-white text-sm">Homewood Suites by Hilton</div>
-                                <div class="text-xs text-slate-400">Near Expressway 83 & food options</div>
-                            </div>
-                            <a href="https://www.booking.com" target="_blank" class="bg-sky-500/10 text-sky-400 hover:bg-sky-500 hover:text-slate-950 text-xs font-semibold px-3 py-1.5 rounded transition-all">
-                                Check Rates
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hotel-row">
+          <div>
+            <div class="name">Margaritaville Beach Resort</div>
+            <div class="note">Closest resort to the Isla Blanca viewing park</div>
+          </div>
+          <a href="https://www.booking.com" target="_blank" rel="nofollow sponsored" class="rate-link">Check rates</a>
         </div>
-    </section>
-
-    <!-- 4. 租车与交通 Transit Section -->
-    <section id="car-rentals" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700 rounded-3xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
-                <div class="max-w-xl">
-                    <span class="text-xs font-semibold text-sky-400 tracking-wider uppercase">Essential Transit Info</span>
-                    <h2 class="text-3xl font-bold text-white mt-2 mb-4">Car Rentals at BRO & HRL Airports</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                        There is no public transit to Boca Chica Beach. Renting a car at Brownsville/South Padre Island International Airport (BRO) or Valley International Airport (HRL) is highly recommended.
-                    </p>
-                    <div class="flex gap-4 text-xs font-mono text-slate-400">
-                        <div>🚗 BRO to Starbase: 25 mins</div>
-                        <div>🚗 HRL to Starbase: 50 mins</div>
-                    </div>
-                </div>
-                <div>
-                    <!-- 此处为 Discover Cars 联盟入口 -->
-                    <a href="https://www.discovercars.com" target="_blank" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-4 rounded-2xl transition-all shadow-lg shadow-emerald-500/20 text-center">
-                        <span>Compare Rental Rates</span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
+        <div class="hotel-row">
+          <div>
+            <div class="name">Courtyard by Marriott SPI</div>
+            <div class="note">Reliable Wi-Fi, good for anyone filming or streaming</div>
+          </div>
+          <a href="https://www.booking.com" target="_blank" rel="nofollow sponsored" class="rate-link">Check rates</a>
         </div>
-    </section>
+      </div>
 
-    <!-- 页脚 Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-500 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-                <p>© 2026 SeeStarbase.com - Independent Fan & Tourist Guide.</p>
-                <p class="mt-1">Not affiliated with SpaceX, Starbase, or NASA.</p>
-            </div>
-            <!-- 社交平台矩阵链接 -->
-<div class="flex flex-wrap gap-4 text-xs font-medium text-slate-400">
-    <a href="https://x.com/StarbaseTravel" target="_blank" class="hover:text-sky-400">X (@StarbaseTravel)</a>
-    <a href="https://youtube.com/@StarbaseTravel" target="_blank" class="hover:text-red-400">YouTube</a>
-    <a href="https://t.me/StarbaseTravel" target="_blank" class="hover:text-sky-300">Telegram Channel</a>
-    <a href="https://instagram.com/StarbaseTravel" target="_blank" class="hover:text-pink-400">Instagram</a>
-    <a href="https://pinterest.com/StarbaseTravel" target="_blank" class="hover:text-red-500">Pinterest (@StarbaseTravel)</a>
-    <a href="https://facebook.com/StarbaseHotel" target="_blank" class="hover:text-blue-400">FB (@StarbaseHotel)</a>
-</div>
+      <div class="hotel-panel brownsville">
+        <h3>Brownsville — budget &amp; convenience</h3>
+        <p>Closer to BRO airport, with fast Highway 4 access on launch morning.</p>
+
+        <div class="hotel-row">
+          <div>
+            <div class="name">Residence Inn Brownsville</div>
+            <div class="note">Spacious suites with kitchens</div>
+          </div>
+          <a href="https://www.booking.com" target="_blank" rel="nofollow sponsored" class="rate-link">Check rates</a>
         </div>
-    </footer>
+        <div class="hotel-row">
+          <div>
+            <div class="name">Homewood Suites by Hilton</div>
+            <div class="note">Near Expressway 83 and food options</div>
+          </div>
+          <a href="https://www.booking.com" target="_blank" rel="nofollow sponsored" class="rate-link">Check rates</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="car-rentals">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2>Rent a car at BRO or HRL</h2>
+        <p>There's no public transit to Boca Chica Beach. Renting at Brownsville/South Padre Island International (BRO) or Valley International (HRL) is the only reliable way in.</p>
+        <div class="transit-chips">
+          <span class="chip"><b>BRO → Starbase</b> · 25 min</span>
+          <span class="chip"><b>HRL → Starbase</b> · 50 min</span>
+        </div>
+      </div>
+      <div class="band-cta">
+        <a href="https://www.discovercars.com" target="_blank" rel="nofollow sponsored" class="btn btn-primary">Compare rental rates</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <p>© 2026 SeeStarbase.com — an independent fan and tourist guide. Not affiliated with SpaceX, Starbase, or NASA.</p>
+      <p>Some links on this page are affiliate links; we may earn a small commission at no extra cost to you.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://x.com/StarbaseTravel" target="_blank" rel="noopener">X</a>
+      <a href="https://youtube.com/@StarbaseTravel" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://instagram.com/StarbaseTravel" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://t.me/StarbaseTravel" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://pinterest.com/StarbaseTravel" target="_blank" rel="noopener">Pinterest</a>
+      <a href="https://facebook.com/StarbaseHotel" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
