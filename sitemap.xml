@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <url>
-       <loc>https://seestarbase.com/</loc>
-       <lastmod>2026-09-07T05:25:04+00:00</lastmod>
-       <priority>1.0000</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://seestarbase.com/</loc></url>
+  <url><loc>https://seestarbase.com/blog/</loc></url>
+  <url><loc>https://seestarbase.com/blog/starship-flight-14-launch-window.html</loc></url>
+  <url><loc>https://seestarbase.com/blog/beyond-the-launch-near-starbase.html</loc></url>
+  <url><loc>https://seestarbase.com/blog/first-time-trip-planning-guide.html</loc></url>
 </urlset>
